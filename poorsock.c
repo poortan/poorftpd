@@ -1,4 +1,4 @@
-﻿#include "poorsock.h"
+#include "poorsock.h"
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
