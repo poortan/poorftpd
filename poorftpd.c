@@ -377,13 +377,14 @@ int main(int argc, char *argv[]) {
             /* 待ち受けポート番号 */
             if (!get_argv(argc, argv, &i, &value)) usage();
             listen_port = atoi(value);
+            if (listen_port == 0) usage();
         } else if (strcmp(value, "-pp") == 0) {
             /* パッシブモードのポート番号 */
             if (!get_argv(argc, argv, &i, &value)) usage();
             pasv_port = atoi(value);
+            if (pasv_port == 0) usage();
         } else {
             /* クライアントに送るファイル名 */
-            if (filename != NULL) usage();
             filename = value;
             leafname = get_leafname(filename);
             build_file_info();
