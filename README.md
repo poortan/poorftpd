@@ -52,4 +52,4 @@ FTPS（File Transfer Protocol over SSL/TLS）には対応していません。<b
 ## ビルドとHaiku OS
 ビルドは基本的にCMakeを使います。<br>
 Makefileは、Haiku OS専用です。<br>
-おま環かもしれませんが、私が試した時点ではCMakeがインストールできませんでしたので、Makefile-Engineを使ったMakefileを準備しました。<br>
+おま環かもしれませんが、CMakeがインストールできない事がありましたので、Makefile-Engineを使ったMakefileも準備しました。<br>
