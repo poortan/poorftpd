@@ -319,6 +319,7 @@ static void main_loop() {
     fprintf(stderr, "Disconnected\n");
 }
 
+/* パスからファイル名だけ取得 */
 static const char *get_leafname(const char *path) {
     char *leaf = strrchr(path, '\\');
     if (leaf == 0) {
@@ -331,6 +332,7 @@ static const char *get_leafname(const char *path) {
 }
 
 static void build_file_info() {
+    /* ファイルのタイムスタンプは今！ */
     int year;
     char month[4];
     int day;
@@ -366,6 +368,7 @@ static int get_argv(int argc, char *argv[], int *i, const char **value) {
     (*i)++;
     return 1;
 }
+
 int main(int argc, char *argv[]) {
     int listen_port = 21;
 
@@ -392,9 +395,9 @@ int main(int argc, char *argv[]) {
     }
 
     /* サーバー開始 */
+    if (!poor_init()) return 1;
     ctrl_session = poor_create_session();
     pasv_session = poor_create_session();
-    if (!poor_init()) return 1;
     if (poor_listen(ctrl_session, listen_port)) {
         if (poor_accept(ctrl_session)) {
             main_loop();
